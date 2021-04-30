@@ -14,5 +14,9 @@ jobs:
       - name: Install dependencies
         working-directory: ./ActionsApp
         run: dotnet restore
+      - name: Build
+        working-directory: ./ActionsApp
+        run: dotnet build --configuration Release --no-restore
+      
 
 
