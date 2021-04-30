@@ -22,7 +22,14 @@ jobs:
         run: dotnet build --configuration Release --no-restore
       - name: Test
         working-directory: ./ActionsApp
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test --no-restore --verbosity normal     
+      - name: Create an issue
+        uses: JasonEtco/create-an-issue@v2.4.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          filename: .github/ISSUE_TEMPLATE/bug_report.md
+
       
 
 
