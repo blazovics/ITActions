@@ -1,6 +1,9 @@
 name: main build
 
-on: push
+on:
+ push: 
+  branches:
+   - main
 
 jobs:
   build:
@@ -17,6 +20,9 @@ jobs:
       - name: Build
         working-directory: ./ActionsApp
         run: dotnet build --configuration Release --no-restore
+      - name: Test
+        working-directory: ./ActionsApp
+        run: dotnet test --no-restore --verbosity normal
       
 
 
