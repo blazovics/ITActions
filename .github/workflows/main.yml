@@ -1,0 +1,28 @@
+name: main build
+
+on:
+ push: 
+  branches:
+   - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with: 
+          dotnet-version: '3.1.x'
+      - name: Install dependencies
+        working-directory: ./ActionsApp
+        run: dotnet restore
+      - name: Build
+        working-directory: ./ActionsApp
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        working-directory: ./ActionsApp
+        run: dotnet test --no-restore --verbosity normal
+      
+
+
