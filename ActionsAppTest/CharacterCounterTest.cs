@@ -11,7 +11,7 @@ namespace ActionsApp.Test
             CharacterCounter cc = new CharacterCounter();
             int length = cc.Characters("");
 
-            Assert.IsTrue(length == 0);
+            Assert.IsTrue(length == 1);
         }
     }
 }
