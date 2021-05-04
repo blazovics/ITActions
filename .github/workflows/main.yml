@@ -30,6 +30,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           filename: .github/ISSUE_TEMPLATE/bug_report.md
+      - name: Create Relase
+        uses: ncipollo/release-action@v1
+        with:
+          body: New Release
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifact: "./ActionsApp/bin/Release/netcoreapp3.1/ActionsApp" 
 
       
 
