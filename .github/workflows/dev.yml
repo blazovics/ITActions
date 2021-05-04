@@ -1,0 +1,37 @@
+name: dev build
+
+on:
+ push: 
+  branches:
+   - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with: 
+          dotnet-version: '3.1.x'
+      - name: Install dependencies
+        working-directory: ./ActionsApp
+        run: dotnet restore
+      - name: Build
+        working-directory: ./ActionsApp
+        run: dotnet build --configuration Release --no-restore
+      - name: Test
+        working-directory: ./ActionsApp
+        run: dotnet test --no-restore --verbosity normal --logger trx --results-directory "TestResults"   
+      - name: Publish Test
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Test Results on dev
+          path: ./ActionsApp/TestResults/*.trx
+          reporter: dotnet-trx
+        
+
+      
+
+
