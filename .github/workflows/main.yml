@@ -2,8 +2,8 @@ name: main build
 
 on:
  push: 
-  branches:
-   - main
+  tags:
+   - 'v*'
 
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
         with:
           body: New Release
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifact: "./ActionsApp/bin/Release/netcoreapp3.1/ActionsApp" 
+          artifacts: "./ActionsApp/bin/Release/netcoreapp3.1/ActionsApp" 
 
       
 
