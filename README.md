@@ -1,2 +1,2 @@
 # ITActions
-## examples
+## example
