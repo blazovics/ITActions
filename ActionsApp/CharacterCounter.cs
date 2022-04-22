@@ -8,7 +8,7 @@ namespace ActionsApp
     {
         public int Characters(string str)
         {
-            return str.Length;
+            return str.Length + 1;
         }
     }
 }
