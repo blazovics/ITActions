@@ -6,9 +6,9 @@ namespace ActionsApp
 {
     public class CharacterCounter
     {
-        public int Characters(string str)
+        public int Characters(string stra)
         {
-            return str.Length;
+            return stra.Length;
         }
     }
 }
