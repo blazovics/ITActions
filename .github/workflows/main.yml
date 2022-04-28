@@ -2,8 +2,8 @@ name: main build
 
 on:
  push: 
-  tags:
-   - 'v*'
+ # tags:
+ #  - 'v*'
 
 jobs:
   build:
@@ -33,6 +33,7 @@ jobs:
       - name: Create Relase
         uses: ncipollo/release-action@v1
         with:
+          tag: "1.1"
           body: New Release
           token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "./ActionsApp/bin/Release/netcoreapp3.1/ActionsApp" 
