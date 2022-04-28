@@ -1,3 +1,3 @@
 # ITActions
 
-## examples
+## example
